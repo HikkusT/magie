@@ -338,4 +338,4 @@ MonoBehaviour:
   _hand: {fileID: 963296078358049264}
   _fingerFeatureStateProvider: {fileID: 6580579858536191953}
   _shapes:
-  - {fileID: 11400000, guid: 778ec0d1357f34113a55cd7623e9161b, type: 2}
+  - {fileID: 11400000, guid: 5a4d7b022c9464975a469ffcb9d452b2, type: 2}
