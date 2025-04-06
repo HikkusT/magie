@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Debug Gesture Detection
+  m_text: No info
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb44739c484b1b54bbc1a0d4d9dd1a50, type: 2}
   m_sharedMaterial: {fileID: -5839354330806206608, guid: eb44739c484b1b54bbc1a0d4d9dd1a50, type: 2}
@@ -796,7 +796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &480906535
 RectTransform:
   m_ObjectHideFlags: 0
@@ -811,10 +811,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1873646156}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -51.75}
+  m_SizeDelta: {x: 168, y: 38.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &480906536
 MonoBehaviour:
@@ -922,17 +922,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480906534}
   m_CullTransparentMesh: 1
---- !u!114 &488850341 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7998576607856056938, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-  m_PrefabInstance: {fileID: 6617366679745056211}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a8d5cf844b463aabaed6d6db3da8c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &595217216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,7 +1232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5792833594233233159, guid: dc0992b1665af9548996ae6d0807dbed, type: 3}
       propertyPath: m_Name
-      value: SwipeDebugLeft
+      value: DebugLeftHand
       objectReference: {fileID: 0}
     - target: {fileID: 5792833594233233159, guid: dc0992b1665af9548996ae6d0807dbed, type: 3}
       propertyPath: m_IsActive
@@ -1714,10 +1703,10 @@ PrefabInstance:
     - target: {fileID: 5792833594233233158, guid: dc0992b1665af9548996ae6d0807dbed, type: 3}
       propertyPath: _activeState
       value: 
-      objectReference: {fileID: 488850341}
+      objectReference: {fileID: 867842299645904642}
     - target: {fileID: 5792833594233233159, guid: dc0992b1665af9548996ae6d0807dbed, type: 3}
       propertyPath: m_Name
-      value: SwipeDebugRight
+      value: DebugRightHand
       objectReference: {fileID: 0}
     - target: {fileID: 5792833594294262292, guid: dc0992b1665af9548996ae6d0807dbed, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2549,6 +2538,141 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6029929497151674310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &867842299645904641
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 74907807545651672, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _handSkeleton
+      value: 
+      objectReference: {fileID: 1553021711568209695}
+    - target: {fileID: 147592129629199427, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _fingerFeatureStateProvider
+      value: 
+      objectReference: {fileID: 867842299645904643}
+    - target: {fileID: 555370840159913710, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555370840159913710, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555370840159913710, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555370840159913710, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 555370840159913710, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555370840159913710, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555370840159913710, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555370840159913710, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555370840159913710, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555370840159913710, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 593265734618218632, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _fingerFeatureStateProvider
+      value: 
+      objectReference: {fileID: 1917225263}
+    - target: {fileID: 683461670513365091, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _debugText
+      value: 
+      objectReference: {fileID: 27216570}
+    - target: {fileID: 1354119214626397450, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 1917225255}
+    - target: {fileID: 3919763312229177657, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _fingerFeatureStateProvider
+      value: 
+      objectReference: {fileID: 1917225263}
+    - target: {fileID: 4454572381050501628, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _handSkeleton
+      value: 
+      objectReference: {fileID: 1553021711568209695}
+    - target: {fileID: 4828932691465535193, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _transformFeatureStateProvider
+      value: 
+      objectReference: {fileID: 1917225264}
+    - target: {fileID: 5189247429583517773, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _transformFeatureStateProvider
+      value: 
+      objectReference: {fileID: 1917225264}
+    - target: {fileID: 5531967392544507667, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _fingerFeatureStateProvider
+      value: 
+      objectReference: {fileID: 867842299645904643}
+    - target: {fileID: 5747443094999050888, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _handSkeleton
+      value: 
+      objectReference: {fileID: 1553021711568209695}
+    - target: {fileID: 6125642784564340106, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: m_Name
+      value: CastingGestures
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354601391587741537, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _handSkeleton
+      value: 
+      objectReference: {fileID: 1553021711568209695}
+    - target: {fileID: 6788910507735230121, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 1917225255}
+    - target: {fileID: 8079051681146752823, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _fingerFeatureStateProvider
+      value: 
+      objectReference: {fileID: 867842299645904643}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+--- !u!114 &867842299645904642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4353284865017580851, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+  m_PrefabInstance: {fileID: 867842299645904641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a8d5cf844b463aabaed6d6db3da8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &867842299645904643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3919763312229177657, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+  m_PrefabInstance: {fileID: 867842299645904641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870d37507a21e5e42877dca0f61dcd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1447245321995200339
 Transform:
   m_ObjectHideFlags: 0
@@ -3033,75 +3157,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1001 &6617366679745056211
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 963296078358049264, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: _hand
-      value: 
-      objectReference: {fileID: 1917225255}
-    - target: {fileID: 1774024638458945903, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: m_Name
-      value: BeginCastGesture
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828186192336422922, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828186192336422922, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828186192336422922, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828186192336422922, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828186192336422922, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828186192336422922, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828186192336422922, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828186192336422922, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828186192336422922, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828186192336422922, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1975593172014231316, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: _transformFeatureStateProvider
-      value: 
-      objectReference: {fileID: 1917225264}
-    - target: {fileID: 6580579858536191953, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
-      propertyPath: _fingerFeatureStateProvider
-      value: 
-      objectReference: {fileID: 1917225263}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4599b335056f44dcd832e119e7d979ba, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3111,4 +3166,4 @@ SceneRoots:
   - {fileID: 1449121111}
   - {fileID: 698024568}
   - {fileID: 1171293352}
-  - {fileID: 6617366679745056211}
+  - {fileID: 867842299645904641}
