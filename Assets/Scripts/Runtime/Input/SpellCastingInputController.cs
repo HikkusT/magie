@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Magie.Spells;
+using TMPro;
 using UnityEngine;
 
 namespace Magie.Input
@@ -12,41 +14,61 @@ namespace Magie.Input
             Casting,
             Firing
         }
+        
+        public enum StateTransition
+        {
+            StartCasting,
+            DismissCasting,
+            FinishCasting,
+            DismissFiring
+        }
 
         [SerializeField] private CastingController _castingController;
+        [SerializeField] private TMP_Text _debugText;
         
         private State _currentState = State.None;
-        
-        public void TryEnterCastingState() => TryToTransitionTo(State.Casting);
-        public void ResetState() => TryToTransitionTo(State.None);
 
-        public void TryToTransitionTo(State updatedState)
+        public void ApplyStartCastingTransition() => ApplyTransition(StateTransition.StartCasting);
+        public void ApplyDismissCastingTransition() => ApplyTransition(StateTransition.DismissCasting);
+        public void ApplyFinishCastingTransition() => ApplyTransition(StateTransition.FinishCasting);
+        public void ApplyDismissFiringTransition() => ApplyTransition(StateTransition.DismissFiring);
+        
+        
+        public void ApplyTransition(StateTransition transition)
         {
-            if (_currentState == updatedState) return;
-            
             // TODO: Formalize state machine
-            switch (_currentState)
+            switch (transition)
             {
-                case State.None:
+                case StateTransition.StartCasting when _currentState == State.None:
                 {
-                    if (updatedState == State.Firing) return;
-                    
                     _castingController.EnterCasting();
+                    _currentState = State.Casting;
                     break;
                 }
-                case State.Casting:
+                case StateTransition.DismissCasting when _currentState == State.Casting:
+                {
+                    _castingController.FinishCasting();
+                    _currentState = State.None;
+                    break;
+                }
+                case StateTransition.FinishCasting when _currentState == State.Casting:
                 {
                     Spell result = _castingController.FinishCasting();
-
-                    if (updatedState == State.Firing)
-                    {
-                        // TODO: Link with target system
-                    }
+                    _currentState = State.Firing;
+                    // TODO: Link with firing controller
+                    break;
+                }
+                case StateTransition.DismissFiring when _currentState == State.Firing:
+                {
+                    _currentState = State.None;
                     break;
                 }
             }
+        }
 
-            _currentState = updatedState;
+        private void Update()
+        {
+            _debugText.text = _currentState.ToString();
         }
     }
 }
