@@ -2618,6 +2618,10 @@ PrefabInstance:
       propertyPath: _transformFeatureStateProvider
       value: 
       objectReference: {fileID: 1917225264}
+    - target: {fileID: 5116094319082203084, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 1917225255}
     - target: {fileID: 5189247429583517773, guid: 3457c697ce5dc44efaf088fbf962828a, type: 3}
       propertyPath: _transformFeatureStateProvider
       value: 
