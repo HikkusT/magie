@@ -49,7 +49,10 @@ namespace Magie.Input
         {
             if (_castingBuffer.Count > 0)
             {
-                _debugText.text = string.Join(", ", _castingBuffer);
+                if (_debugText != null)
+                {
+                    _debugText.text = string.Join(", ", _castingBuffer);
+                }
             }
         }
     }

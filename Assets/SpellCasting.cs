@@ -1,3 +1,4 @@
+using System;
 using UnityEngine; // Include UnityEngine for basic functionality
 using Oculus.Interaction.Input; // Include Oculus Interaction Input for hand tracking
 using System.Collections.Generic; // Include System.Collections.Generic for using dictionaries
@@ -133,4 +134,9 @@ public class SpellCasting : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        spellCounter = 0;
+        dataBaseSpellObjectCast.Clear();
+    }
 }
