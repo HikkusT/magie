@@ -24,7 +24,7 @@ namespace Magie.Input
         }
 
         [SerializeField] private CastingController _castingController;
-        [SerializeField] private SpellCasting _firingController;
+        [SerializeField] private SpellTargetingController _firingController;
         [SerializeField] private TMP_Text _debugText;
         
         private State _currentState = State.None;
@@ -54,16 +54,18 @@ namespace Magie.Input
                 }
                 case StateTransition.FinishCasting when _currentState == State.Casting:
                 {
+                    Debug.Log($"[Hik] Finishing Cast!");
                     Spell result = _castingController.FinishCasting();
-                    _firingController.gameObject.SetActive(true);
+                    _firingController.EnterFiringMode(result);
                     _currentState = State.Firing;
                     // TODO: Link with firing controller
+                    
                     break;
                 }
                 case StateTransition.DismissFiring when _currentState == State.Firing:
                 {
                     _currentState = State.None;
-                    _firingController.gameObject.SetActive(false);
+                    _firingController.ExitFiringMode();
                     break;
                 }
             }
