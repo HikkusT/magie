@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c13adb4460944cf87a125d7947b866e, type: 3}
-  m_Name: Fire
+  m_Script: {fileID: 11500000, guid: 462647632c1c44749d3f7621d76d5cf8, type: 3}
+  m_Name: IceBeam
   m_EditorClassIdentifier: 
-  _debugName: FIRE
-  _fingertipParticles: {fileID: 8736847447189777064, guid: 42be6330c6aeacb479f8abd22f10e809, type: 3}
+  _prefab: {fileID: 0}

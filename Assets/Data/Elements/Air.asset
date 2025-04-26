@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Air
   m_EditorClassIdentifier: 
   _debugName: AIR
-  _fingertipParticles: {fileID: 6939271997152416501, guid: 841ea76502a284e56a503d8e648ed89f, type: 3}
+  _fingertipParticles: {fileID: 6775399207195480883, guid: 4fb2643facb524b4a8f3d02866667250, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   _debugName: EARTH
-  _fingertipParticles: {fileID: 8443293757395735827, guid: 29da435595209428999bb3451a2336b5, type: 3}
+  _fingertipParticles: {fileID: 733793169651610929, guid: b2e9d42d541fceb4f9fc57d9fd281b53, type: 3}

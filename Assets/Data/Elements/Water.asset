@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   _debugName: WATER
-  _fingertipParticles: {fileID: 5814218915154273642, guid: b7f42f85bf18a493bbe92f1508b58f92, type: 3}
+  _fingertipParticles: {fileID: 4949573503260733891, guid: e7458cac5980fff43a0ab8ec9ca20989, type: 3}
