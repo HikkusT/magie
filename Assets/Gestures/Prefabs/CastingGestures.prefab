@@ -257,7 +257,6 @@ GameObject:
   - component: {fileID: 3254040992409345890}
   - component: {fileID: 4950166317344003602}
   - component: {fileID: 3804469014821248221}
-  - component: {fileID: 3149387740887910420}
   m_Layer: 0
   m_Name: MagicCenterObject
   m_TagString: Untagged
@@ -333,27 +332,65 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3149387740887910420
-SphereCollider:
+--- !u!1 &2726489262938187053
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2723415346168766027}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1898992677229063822}
+  - component: {fileID: 3667225337706160416}
+  m_Layer: 0
+  m_Name: CastingPalm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1898992677229063822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726489262938187053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3466973017248082316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3667225337706160416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726489262938187053}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195a8b60e64140bfa9f081033ef0210e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 5116094319082203084}
+  _offsetPerpendicularDistance: 0.03
+  _offsetTowardsFingertips: 0.07
+  _castingElementVfxPrefabs:
+    _keys:
+    - {fileID: 11400000, guid: 556badeeae1fa47bb8db09cd9d8850b6, type: 2}
+    - {fileID: 11400000, guid: f81d071715876405dafad9d0ec25cee7, type: 2}
+    - {fileID: 11400000, guid: ef323ae7a8d29445b9c1354066d164dc, type: 2}
+    - {fileID: 11400000, guid: 6971698724beb4d6f8edf62668d57f80, type: 2}
+    _values:
+    - {fileID: 3308580978634037199, guid: 1c9cae8f19af1bf439235730738c39bf, type: 3}
+    - {fileID: 7929895999748749978, guid: e1dcbd3786bddc04da60b59f478c8225, type: 3}
+    - {fileID: 1676283393861601854, guid: f3626104a7758a740948e744834a6fa8, type: 3}
+    - {fileID: 4829472872789222685, guid: a9ddee59ddf97af4caaefa5d4af2843a, type: 3}
+  _vfxVerticalOffset: 0
 --- !u!1 &6125642784564340106
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +403,7 @@ GameObject:
   - component: {fileID: 683461670513365091}
   - component: {fileID: 4827712134655925388}
   - component: {fileID: 4535906808182784665}
+  - component: {fileID: 8488803073266326153}
   m_Layer: 0
   m_Name: CastingGestures
   m_TagString: Untagged
@@ -411,6 +449,21 @@ MonoBehaviour:
   - {fileID: 5747443094999050888}
   _spellTable: {fileID: 11400000, guid: 79e972d27bda147c48a23d1a3c99dc67, type: 2}
   _maxNumberOfElementsInSpell: 2
+  _onCastingBufferUpdated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3667225337706160416}
+        m_TargetAssemblyTypeName: Magie.Input.CastingPalm, Assembly-CSharp
+        m_MethodName: RefreshVfxs
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4827712134655925388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,8 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f71c64a482c43259d6205983992723b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hand: {fileID: 5116094319082203084}
-  magicCenterObject: {fileID: 3254040992409345890}
+  _castingPalm: {fileID: 3667225337706160416}
   collisionDetectionPoint: {fileID: 4940440267179458578}
   collisionLayers:
     serializedVersion: 2
@@ -448,6 +500,27 @@ MonoBehaviour:
   offsetTowardsFingertips: 0.08
   rayLength: 10
   speedRotationDetectionPoint: 10
+--- !u!114 &8488803073266326153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6125642784564340106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adb5603f3534cd0971ef9f2d6ce3fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputController: {fileID: 4827712134655925388}
+  _firingController: {fileID: 4535906808182784665}
+  _keysByFinger:
+    _keys:
+    - {fileID: 6354601391587741537}
+    - {fileID: 4454572381050501628}
+    - {fileID: 74907807545651672}
+    - {fileID: 5747443094999050888}
+    _values: 1f000000250000001300000020000000
 --- !u!1 &7973723658047830785
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +558,7 @@ Transform:
   - {fileID: 6546014136018342499}
   - {fileID: 5347561839939805011}
   - {fileID: 8544369996495548191}
+  - {fileID: 1898992677229063822}
   m_Father: {fileID: 555370840159913710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5116094319082203084
