@@ -4,6 +4,7 @@ using Magie.Elements;
 using Magie.Spells;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Magie.Input
 {
@@ -13,6 +14,7 @@ namespace Magie.Input
         [SerializeField] private List<CastingFinger> _castingFingers;
         [SerializeField] private SpellTable _spellTable;
         [SerializeField] private int _maxNumberOfElementsInSpell = 2;
+        [SerializeField] private UnityEvent<ElementCombination> _onCastingBufferUpdated;
         
         private ElementCombination _castingBuffer;
 
@@ -21,6 +23,7 @@ namespace Magie.Input
             if (_castingBuffer.Elements.Count >= _maxNumberOfElementsInSpell) return;
             
             _castingBuffer.Add(element);
+            _onCastingBufferUpdated.Invoke(_castingBuffer);
         }
 
         public void EnterCasting()

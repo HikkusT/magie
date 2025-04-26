@@ -45,20 +45,17 @@ public struct ElementCombination : IEquatable<ElementCombination>
     {
         if (elements == null || elements.Count == 0)
             return 0;
+        
+        int hash = 17;
+        var counts = GetElementCounts(elements);
 
-        unchecked
+        foreach (var kvp in counts.OrderBy(kvp => kvp.Key.DebugName)) // Order ensures consistent hash
         {
-            int hash = 17;
-            var counts = GetElementCounts(elements);
-
-            foreach (var kvp in counts.OrderBy(kvp => kvp.Key)) // Order ensures consistent hash
-            {
-                hash = hash * 31 + kvp.Key.GetHashCode();
-                hash = hash * 31 + kvp.Value;
-            }
-
-            return hash;
+            hash = hash * 31 + kvp.Key.GetHashCode();
+            hash = hash * 31 + kvp.Value;
         }
+
+        return hash;
     }
 
     private static Dictionary<Element, int> GetElementCounts(List<Element> list)
@@ -66,10 +63,8 @@ public struct ElementCombination : IEquatable<ElementCombination>
         var dict = new Dictionary<Element, int>();
         foreach (var e in list)
         {
-            if (dict.ContainsKey(e))
+            if (!dict.TryAdd(e, 1))
                 dict[e]++;
-            else
-                dict[e] = 1;
         }
         return dict;
     }
