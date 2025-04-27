@@ -7,31 +7,30 @@ namespace Magie.Input
     public class SpellFiringController : MonoBehaviour
     {
         [SerializeField] private CastingPalm _castingPalm;
-        [SerializeField] private Transform collisionDetectionPoint;
-        [SerializeField] private LayerMask collisionLayers;
-        
-        [SerializeField] private float rayLength = 10f; // Length of the raycast
-        [SerializeField] private float speedRotationDetectionPoint = 10f; // Speed of rotation for the collision detection point
+
+        [SerializeField] private Transform _targetIndicator;
+        [SerializeField] private LayerMask _targetCollisionMask;
+        [SerializeField] private float _hoverOffset;
         
         private ASpellFiringContext _spellFiringContext;
 
         public void EnterFiringMode(Spell spell, Action dismissFiringModeTrigger)
         {
             _spellFiringContext = spell.CreateContext(onContextClosure: dismissFiringModeTrigger);
-            collisionDetectionPoint.gameObject.SetActive(true);
+            _targetIndicator.gameObject.SetActive(true);
         }
 
         public void ExitFiringMode()
         {
             _spellFiringContext = null;
-            collisionDetectionPoint.gameObject.SetActive(false);
+            _targetIndicator.gameObject.SetActive(false);
         }
 
         public void FireSpell()
         {
             if (_spellFiringContext == null) return;
             
-            _spellFiringContext.TryTriggerSpell(_castingPalm.PalmRoot.position, collisionDetectionPoint.position);
+            _spellFiringContext.TryTriggerSpell(_castingPalm.PalmRoot.position, _targetIndicator.position);
         }
 
         private void Update()
@@ -40,11 +39,10 @@ namespace Magie.Input
             
             Ray ray = new Ray(_castingPalm.PalmRoot.position, -_castingPalm.PalmRoot.up);
 
-            if (Physics.Raycast(ray, out RaycastHit hit, rayLength, collisionLayers))
+            if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, _targetCollisionMask))
             {
-                collisionDetectionPoint.position = hit.point;
-                Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-                collisionDetectionPoint.rotation = Quaternion.Slerp(collisionDetectionPoint.rotation, targetRotation, Time.deltaTime * speedRotationDetectionPoint);
+                _targetIndicator.position = hit.point + hit.normal * _hoverOffset;
+                _targetIndicator.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
             }
         }
     }
