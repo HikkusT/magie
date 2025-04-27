@@ -218,7 +218,7 @@ Shader "Archanor VFX/Magic Arsenal/MagicBeamADD"
 			#endif
 			CBUFFER_END
 			sampler2D _MainTex;
-			uniform float4 _CameraDepthTexture_TexelSize;
+			// uniform float4 _CameraDepthTexture_TexelSize;
 
 
 						
@@ -473,7 +473,7 @@ Shader "Archanor VFX/Magic Arsenal/MagicBeamADD"
 			#endif
 			CBUFFER_END
 			sampler2D _MainTex;
-			uniform float4 _CameraDepthTexture_TexelSize;
+			// uniform float4 _CameraDepthTexture_TexelSize;
 
 
 			
