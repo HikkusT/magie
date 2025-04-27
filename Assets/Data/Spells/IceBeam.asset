@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462647632c1c44749d3f7621d76d5cf8, type: 3}
   m_Name: IceBeam
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
+  _prefab: {fileID: 1402625567080497396, guid: 14b90b9dee67e944596c0a14a6343460, type: 3}
+  _maxBeamDurationInSeconds: 10

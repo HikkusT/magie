@@ -356,6 +356,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _hoverOffset: 0.01
+  _lerpSpeed: 0.3
 --- !u!114 &8488803073266326153
 MonoBehaviour:
   m_ObjectHideFlags: 0

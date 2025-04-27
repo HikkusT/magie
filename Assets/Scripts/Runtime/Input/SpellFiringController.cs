@@ -11,6 +11,8 @@ namespace Magie.Input
         [SerializeField] private Transform _targetIndicator;
         [SerializeField] private LayerMask _targetCollisionMask;
         [SerializeField] private float _hoverOffset;
+
+        [SerializeField, Range(0, 1f)] private float _lerpSpeed = 1f;
         
         private ASpellFiringContext _spellFiringContext;
 
@@ -48,8 +50,8 @@ namespace Magie.Input
 
             if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, _targetCollisionMask))
             {
-                _targetIndicator.position = hit.point + hit.normal * _hoverOffset;
-                _targetIndicator.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                _targetIndicator.position = Vector3.Lerp(_targetIndicator.position, hit.point + hit.normal * _hoverOffset, _lerpSpeed);
+                _targetIndicator.rotation = Quaternion.Slerp(_targetIndicator.rotation, Quaternion.FromToRotation(Vector3.up, hit.normal), _lerpSpeed);
             }
         }
     }
