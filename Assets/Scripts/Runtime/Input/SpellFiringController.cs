@@ -16,7 +16,7 @@ namespace Magie.Input
 
         public void EnterFiringMode(Spell spell, Action dismissFiringModeTrigger)
         {
-            _spellFiringContext = spell.CreateContext(onContextClosure: dismissFiringModeTrigger);
+            _spellFiringContext = spell.CreateContext(_castingPalm.PalmRoot, onContextClosure: dismissFiringModeTrigger);
             _targetIndicator.gameObject.SetActive(true);
         }
 
@@ -30,7 +30,14 @@ namespace Magie.Input
         {
             if (_spellFiringContext == null) return;
             
-            _spellFiringContext.TryFire(_castingPalm.PalmRoot.position, _targetIndicator);
+            _spellFiringContext.TryFire(_targetIndicator);
+        }
+        
+        public void StopSpell()
+        {
+            if (_spellFiringContext == null) return;
+            
+            _spellFiringContext.TryCancel();
         }
 
         private void Update()

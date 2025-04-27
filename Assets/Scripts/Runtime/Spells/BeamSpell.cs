@@ -8,7 +8,7 @@ namespace Magie.Spells
     {
         [SerializeField] private GameObject _prefab;
         
-        public override ASpellFiringContext CreateContext(Action onContextClosure) =>
-            new BeamSpellFiringContext(onContextClosure);
+        public override ASpellFiringContext CreateContext(Transform spellOrigin, Action onContextClosure) =>
+            new BeamSpellFiringContext(this, spellOrigin, onContextClosure);
     }
 }

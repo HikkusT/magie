@@ -8,16 +8,20 @@ namespace Magie.Spells
     {
         private readonly ConstructionSpell Spell;
         
-        public ConstructionSpellFiringContext(ConstructionSpell spell, Action onDepleted) : base(onDepleted)
+        public ConstructionSpellFiringContext(ConstructionSpell spell, Transform spellOrigin, Action onDepleted) : base(spellOrigin, onDepleted)
         {
             Spell = spell;
         }
 
-        public override void TryFire(Vector3 spellOriginPosition, Transform target)
+        public override void TryFire(Transform target)
         {
-            Vector3 desiredForward = Vector3.ProjectOnPlane(target.position - spellOriginPosition, target.up).normalized;
+            Vector3 desiredForward = Vector3.ProjectOnPlane(target.position - SpellOrigin.transform.position, target.up).normalized;
             Object.Instantiate(Spell.Prefab, target.position, Quaternion.LookRotation(desiredForward,target.up));
             OnDepleted?.Invoke();
+        }
+
+        public override void TryCancel()
+        {
         }
     }
 }

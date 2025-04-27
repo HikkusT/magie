@@ -10,7 +10,7 @@ namespace Magie.Spells
 
         public GameObject Prefab => _prefab;
         
-        public override ASpellFiringContext CreateContext(Action onContextClosure) =>
-            new ConstructionSpellFiringContext(this, onContextClosure);
+        public override ASpellFiringContext CreateContext(Transform spellOrigin, Action onContextClosure) =>
+            new ConstructionSpellFiringContext(this, spellOrigin, onContextClosure);
     }
 }

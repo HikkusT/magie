@@ -10,20 +10,20 @@ namespace Magie.Spells
         private int _numberOfTriggers;
         private DateTime _lastFiredAt;
         
-        public ProjectileSpellFiringContext(ProjectileSpell spell, Action onDepleted) : base(onDepleted)
+        public ProjectileSpellFiringContext(ProjectileSpell spell, Transform spellOrigin, Action onDepleted) : base(spellOrigin, onDepleted)
         {
             Spell = spell;
             _lastFiredAt = DateTime.MinValue;
         }
         
-        public override void TryFire(Vector3 spellOriginPosition, Transform target)
+        public override void TryFire(Transform target)
         {
             if (DateTime.Now - _lastFiredAt < Spell.ShootingCooldown)
             {
                 return;
             }
 
-            Projectile projectile = Object.Instantiate(Spell.Prefab, spellOriginPosition, Quaternion.identity);
+            Projectile projectile = Object.Instantiate(Spell.Prefab, SpellOrigin.position, Quaternion.identity);
             projectile.PlayTrajectory(target.position).Forget();
 
             _lastFiredAt = DateTime.Now;
@@ -32,6 +32,10 @@ namespace Magie.Spells
             {
                 OnDepleted?.Invoke();
             }
+        }
+
+        public override void TryCancel()
+        {
         }
     }
 }

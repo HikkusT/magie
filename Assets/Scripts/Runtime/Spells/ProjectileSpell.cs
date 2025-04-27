@@ -19,7 +19,7 @@ namespace Magie.Spells
         public TimeSpan ShootingCooldown => TimeSpan.FromSeconds(_shootingCooldownInSeconds);
         public int NumberOfProjectiles => _isUnlimitedProjectiles ? int.MaxValue : _numberOfProjectiles;
 
-        public override ASpellFiringContext CreateContext(Action onContextClosure) =>
-            new ProjectileSpellFiringContext(this, onContextClosure);
+        public override ASpellFiringContext CreateContext(Transform spellOrigin, Action onContextClosure) =>
+            new ProjectileSpellFiringContext(this, spellOrigin, onContextClosure);
     }
 }

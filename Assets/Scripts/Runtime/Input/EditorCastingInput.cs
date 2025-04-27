@@ -40,6 +40,11 @@ namespace Magie.Input
             {
                 _firingController.FireSpell();
             }
+            
+            if (Keyboard.current.spaceKey.wasReleasedThisFrame)
+            {
+                _firingController.StopSpell();
+            }
         }
         #endif
     }
