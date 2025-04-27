@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 1241722581240201949, guid: 7fa26818b73554e77b273a31f38278b9, type: 3}
       propertyPath: _element
       value: 
-      objectReference: {fileID: 11400000, guid: f81d071715876405dafad9d0ec25cee7, type: 2}
+      objectReference: {fileID: 11400000, guid: ef323ae7a8d29445b9c1354066d164dc, type: 2}
     - target: {fileID: 1241722581240201949, guid: 7fa26818b73554e77b273a31f38278b9, type: 3}
       propertyPath: _fingerBoneId
       value: 10

@@ -51,14 +51,14 @@ PrefabInstance:
     - target: {fileID: 1241722581240201949, guid: 7fa26818b73554e77b273a31f38278b9, type: 3}
       propertyPath: _element
       value: 
-      objectReference: {fileID: 11400000, guid: ef323ae7a8d29445b9c1354066d164dc, type: 2}
+      objectReference: {fileID: 11400000, guid: f81d071715876405dafad9d0ec25cee7, type: 2}
     - target: {fileID: 6698017382820410390, guid: 7fa26818b73554e77b273a31f38278b9, type: 3}
       propertyPath: '_shapes.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 14ea67d6ee7c04c98a97f095345f3ced, type: 2}
     - target: {fileID: 7126531482987746609, guid: 7fa26818b73554e77b273a31f38278b9, type: 3}
       propertyPath: m_Name
-      value: CastingRingFinger Variant
+      value: CastingRingFinger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

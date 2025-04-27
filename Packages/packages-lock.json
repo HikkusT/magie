@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "06067cd4c83e372310d6f79d1c625f6870ff7a2a"
+    },
     "com.meta.xr.mrutilitykit": {
       "version": "74.0.1",
       "depth": 1,
@@ -367,6 +374,13 @@
         "com.unity.xr.legacyinputhelpers": "2.1.2"
       },
       "url": "https://packages.unity.com"
+    },
+    "today.comes.saintsfield": {
+      "version": "https://github.com/TylerTemp/SaintsField.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "811bff6ee1484e15752ea6a788272731763f330b"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

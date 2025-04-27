@@ -1,10 +1,10 @@
+using System;
 using UnityEngine;
 
 namespace Magie.Spells
 {
-    [CreateAssetMenu(menuName = "Magie/Spell")]
-    public class Spell : ScriptableObject
+    public abstract class Spell : ScriptableObject
     {
-        
+        public abstract ASpellFiringContext CreateContext(Transform spellOrigin, Action onContextClosure);
     }
 }
