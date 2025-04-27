@@ -9,7 +9,7 @@ namespace Magie.Spells
         {
         }
 
-        public override void TryTriggerSpell(Vector3 spellOriginPosition, Vector3 spellTargetPosition)
+        public override void TryFire(Vector3 spellOriginPosition, Transform target)
         {
             throw new NotImplementedException();
         }

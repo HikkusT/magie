@@ -38,7 +38,7 @@ namespace Magie.Input
         {
             foreach ((Element element, GameObject vfx) in _instantiatedCastingElementVfxs)
             {
-                vfx.SetActive(elementCombination.Elements.Contains(element));
+                vfx.SetActive(elementCombination.Elements?.Contains(element) == true);
             }
         }
 

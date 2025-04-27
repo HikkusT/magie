@@ -49,19 +49,29 @@ namespace Magie.Input
                 case StateTransition.DismissCasting when _currentState == State.Casting:
                 {
                     _castingController.FinishCasting();
+                    _castingController.FlushBuffer();
                     _currentState = State.None;
                     break;
                 }
                 case StateTransition.FinishCasting when _currentState == State.Casting:
                 {
                     Spell result = _castingController.FinishCasting();
-                    _firingController.EnterFiringMode(result, ApplyDismissFiringTransition);
-                    _currentState = State.Firing;
+                    if (result == null)
+                    {
+                        _castingController.FlushBuffer();
+                        _currentState = State.None;
+                    }
+                    else
+                    {
+                        _firingController.EnterFiringMode(result, ApplyDismissFiringTransition);
+                        _currentState = State.Firing;
+                    }
                     break;
                 }
                 case StateTransition.DismissFiring when _currentState == State.Firing:
                 {
                     _currentState = State.None;
+                    _castingController.FlushBuffer();
                     _firingController.ExitFiringMode();
                     break;
                 }

@@ -30,7 +30,7 @@ namespace Magie.Input
         {
             if (_spellFiringContext == null) return;
             
-            _spellFiringContext.TryTriggerSpell(_castingPalm.PalmRoot.position, _targetIndicator.position);
+            _spellFiringContext.TryFire(_castingPalm.PalmRoot.position, _targetIndicator);
         }
 
         private void Update()

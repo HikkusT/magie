@@ -52,11 +52,16 @@ namespace Magie.Input
                 Debug.LogError($"Failed to find spell for buffer {string.Join(", ", _castingBuffer.Elements.Select(it => it.name))}");
             }
             Debug.Log($"[Hik] got {result != null} {(result != null ? result.name : "none")}");;
-
-            _castingBuffer = new();
+            
             _debugText.text = "Exited casting";
 
             return result;
+        }
+
+        public void FlushBuffer()
+        {
+            _castingBuffer = new();
+            _onCastingBufferUpdated.Invoke(_castingBuffer);
         }
 
         private void Update()

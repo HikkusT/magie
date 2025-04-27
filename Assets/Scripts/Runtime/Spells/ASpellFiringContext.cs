@@ -12,6 +12,6 @@ namespace Magie.Spells
             OnDepleted = onDepleted;
         }
         
-        public abstract void TryTriggerSpell(Vector3 spellOriginPosition, Vector3 spellTargetPosition);
+        public abstract void TryFire(Vector3 spellOriginPosition, Transform target);
     }
 }
