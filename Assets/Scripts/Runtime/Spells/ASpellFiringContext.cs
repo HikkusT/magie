@@ -14,7 +14,7 @@ namespace Magie.Spells
             OnDepleted = onDepleted;
         }
         
-        public abstract void TryFire(Transform target);
+        public abstract void TryFire(Transform target, ISpellSpawner spellSpawner);
 
         public abstract void TryCancel();
     }

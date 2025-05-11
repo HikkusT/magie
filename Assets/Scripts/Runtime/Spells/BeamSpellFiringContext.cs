@@ -17,7 +17,7 @@ namespace Magie.Spells
             Spell = spell;
         }
 
-        public override void TryFire(Transform target)
+        public override void TryFire(Transform target, ISpellSpawner spellSpawner)
         {
             if (_isFiring) return;
 
