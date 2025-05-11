@@ -26,7 +26,7 @@ namespace Multiplayer
         private void RequestSpawnServerRpc(uint prefabId, Vector3 position, Quaternion rotation)
         {
             GameObject prefab = NetworkManager.Singleton.NetworkConfig.Prefabs.Prefabs.First(it => it.SourcePrefabGlobalObjectIdHash == prefabId).Prefab;
-            var instance = Instantiate(prefab, position, Quaternion.identity);
+            var instance = Instantiate(prefab, position, rotation);
             instance.GetComponent<NetworkObject>().Spawn();
         }
     }
