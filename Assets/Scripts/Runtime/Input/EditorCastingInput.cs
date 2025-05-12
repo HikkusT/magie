@@ -10,7 +10,7 @@ namespace Magie.Input
         [SerializeField] private SpellFiringController _firingController;
         [SerializeField] private SaintsDictionary<CastingFinger, Key> _keysByFinger;
         
-        #if UNITY_EDITOR
+        #if UNITY_EDITOR || UNITY_STANDALONE
         private void Update()
         {
             if (Keyboard.current.shiftKey.wasPressedThisFrame)

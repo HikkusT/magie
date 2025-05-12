@@ -13,8 +13,14 @@ namespace Magie.Input
         [SerializeField] private float _hoverOffset;
 
         [SerializeField, Range(0, 1f)] private float _lerpSpeed = 1f;
-        
+
+        private ISpellSpawner SpellSpawner = new SinglePlayerSpellSpawner();
         private ASpellFiringContext _spellFiringContext;
+
+        public void SetupWithNetwork(ISpellSpawner spellSpawner)
+        {
+            SpellSpawner = spellSpawner;
+        }
 
         public void EnterFiringMode(Spell spell, Action dismissFiringModeTrigger)
         {
@@ -32,7 +38,7 @@ namespace Magie.Input
         {
             if (_spellFiringContext == null) return;
             
-            _spellFiringContext.TryFire(_targetIndicator);
+            _spellFiringContext.TryFire(_targetIndicator, SpellSpawner);
         }
         
         public void StopSpell()

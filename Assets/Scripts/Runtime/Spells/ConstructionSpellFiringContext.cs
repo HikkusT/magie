@@ -13,10 +13,10 @@ namespace Magie.Spells
             Spell = spell;
         }
 
-        public override void TryFire(Transform target)
+        public override void TryFire(Transform target, ISpellSpawner spellSpawner)
         {
             Vector3 desiredForward = Vector3.ProjectOnPlane(target.position - SpellOrigin.transform.position, target.up).normalized;
-            Object.Instantiate(Spell.Prefab, target.position, Quaternion.LookRotation(desiredForward,target.up));
+            spellSpawner.SpawnConstructionSpell(Spell.Prefab, target.position, Quaternion.LookRotation(desiredForward,target.up));
             OnDepleted?.Invoke();
         }
 

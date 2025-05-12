@@ -16,7 +16,7 @@ namespace Magie.Spells
             _lastFiredAt = DateTime.MinValue;
         }
         
-        public override void TryFire(Transform target)
+        public override void TryFire(Transform target, ISpellSpawner spellSpawner)
         {
             if (DateTime.Now - _lastFiredAt < Spell.ShootingCooldown)
             {
@@ -24,7 +24,7 @@ namespace Magie.Spells
             }
 
             Projectile projectile = Object.Instantiate(Spell.Prefab, SpellOrigin.position, Quaternion.identity);
-            projectile.PlayTrajectory(target.position).Forget();
+            projectile.PlayTrajectory(target.position);
 
             _lastFiredAt = DateTime.Now;
             _numberOfTriggers++;
