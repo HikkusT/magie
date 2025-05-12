@@ -5,6 +5,7 @@ using Magie.Spells;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using Bhaptics.SDK2;
 
 namespace Magie.Input
 {
@@ -24,6 +25,22 @@ namespace Magie.Input
             
             _castingBuffer.Add(element);
             _onCastingBufferUpdated.Invoke(_castingBuffer);
+
+            switch (element.name.ToLower())
+            {
+                case "fire":
+                    BhapticsLibrary.Play("fire");
+                    break;
+                case "water":
+                    BhapticsLibrary.Play("water");
+                    break;
+                case "earth":
+                    BhapticsLibrary.Play("earth");
+                    break;
+                case "air":
+                    BhapticsLibrary.Play("air");
+                    break;
+            }
         }
 
         public void EnterCasting()
@@ -34,6 +51,17 @@ namespace Magie.Input
                 castingFinger.SetVisibility(true);
                 castingFinger.OnCasted += AddToCastingBuffer;
             }
+
+            // BhapticsLibrary.Play(
+            //     eventID, "entered_casting"
+            //     delay, 1 
+            //     intensityMultiplier, 0-1 ?
+            //     durationMultiplier, 2 veces
+            //     rotationAroundBodyDegree, 90
+            //     offsetY 0
+            // );
+
+            BhapticsLibrary.Play("entered_casting");
             
             _debugText.text = "Entered casting";
         }
@@ -51,9 +79,11 @@ namespace Magie.Input
             {
                 Debug.LogError($"Failed to find spell for buffer {string.Join(", ", _castingBuffer.Elements.Select(it => it.name))}");
             }
-            Debug.Log($"[Hik] got {result != null} {(result != null ? result.name : "none")}");;
+            Debug.Log($"[Hik] got {result != null} {(result != null ? result.name : "none")}");
             
             _debugText.text = "Exited casting";
+
+            BhapticsLibrary.Play("finish_casting");
 
             return result;
         }

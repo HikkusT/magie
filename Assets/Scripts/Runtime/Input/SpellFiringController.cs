@@ -1,6 +1,7 @@
 using System;
 using Magie.Spells;
 using UnityEngine;
+using Bhaptics.SDK2;
 
 namespace Magie.Input
 {
@@ -15,6 +16,7 @@ namespace Magie.Input
         [SerializeField, Range(0, 1f)] private float _lerpSpeed = 1f;
         
         private ASpellFiringContext _spellFiringContext;
+        private bool _isFiring = false;
 
         public void EnterFiringMode(Spell spell, Action dismissFiringModeTrigger)
         {
@@ -26,25 +28,41 @@ namespace Magie.Input
         {
             _spellFiringContext = null;
             _targetIndicator.gameObject.SetActive(false);
+            _isFiring = false;
         }
 
-        public void FireSpell()
-        {
-            if (_spellFiringContext == null) return;
+        // public void FireSpell()
+        // {
+        //     if (_spellFiringContext == null) return;
             
-            _spellFiringContext.TryFire(_targetIndicator);
-        }
+        //     _spellFiringContext.TryFire(_targetIndicator);
+        // }
         
-        public void StopSpell()
-        {
-            if (_spellFiringContext == null) return;
+        // public void StopSpell()
+        // {
+        //     if (_spellFiringContext == null) return;
             
-            _spellFiringContext.TryCancel();
-        }
+        //     _spellFiringContext.TryCancel();
+        // }
 
         private void Update()
         {
             if (_spellFiringContext == null) return;
+            
+            float leftTrigger = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.LTouch);
+                        
+            if (leftTrigger > 0.5f && !_isFiring)
+            {
+                _isFiring = true;
+                BhapticsLibrary.Play("firing");
+                _spellFiringContext.TryFire(_targetIndicator);
+            }
+            
+            else if (leftTrigger <= 0.5f && _isFiring)
+            {
+                _isFiring = false;
+                _spellFiringContext.TryCancel();
+            }
             
             Ray ray = new Ray(_castingPalm.PalmRoot.position, -_castingPalm.PalmRoot.up);
 

@@ -38,12 +38,12 @@ namespace Magie.Input
 
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                _firingController.FireSpell();
+                //_firingController.FireSpell();
             }
             
             if (Keyboard.current.spaceKey.wasReleasedThisFrame)
             {
-                _firingController.StopSpell();
+                //_firingController.StopSpell();
             }
         }
         #endif
