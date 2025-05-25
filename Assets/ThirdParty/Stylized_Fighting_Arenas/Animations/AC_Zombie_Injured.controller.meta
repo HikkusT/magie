@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 73711ba1e862e914d845a8fe9cbad5c1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Animations/AC_Zombie_Injured.controller
+  uploadId: 733283

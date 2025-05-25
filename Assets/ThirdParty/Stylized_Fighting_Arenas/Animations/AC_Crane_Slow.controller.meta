@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f377a8be0228d0e4d840fe70b836e13c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Animations/AC_Crane_Slow.controller
+  uploadId: 733283

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f276d9baea1335e408913b8dbdfae1fd
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Animations/AC_Zombie_Idle.controller
+  uploadId: 733283

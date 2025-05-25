@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bce4568b82339684886f2bfca211d962
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Scenes/Scene_Apocalyptic/LightingData.asset
+  uploadId: 733283

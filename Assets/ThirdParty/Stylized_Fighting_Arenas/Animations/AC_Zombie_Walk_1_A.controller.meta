@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fb7ba7298e10e0a4faaf0d3bae35e641
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Animations/AC_Zombie_Walk_1_A.controller
+  uploadId: 733283

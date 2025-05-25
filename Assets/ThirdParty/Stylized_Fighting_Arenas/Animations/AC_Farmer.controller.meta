@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 60f2b09e5dbd51e418752b7e6afc2ef0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Animations/AC_Farmer.controller
+  uploadId: 733283

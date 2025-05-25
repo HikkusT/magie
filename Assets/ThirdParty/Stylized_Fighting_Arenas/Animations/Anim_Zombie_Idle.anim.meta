@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cae26431ef9ae1e4aa2a7c2aa67c1283
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Animations/Anim_Zombie_Idle.anim
+  uploadId: 733283

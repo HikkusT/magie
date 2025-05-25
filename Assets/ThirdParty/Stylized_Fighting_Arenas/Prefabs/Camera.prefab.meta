@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c2b60bacac105f24dbf7938d07ece34b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Prefabs/Camera.prefab
+  uploadId: 733283
