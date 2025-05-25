@@ -1,5 +1,6 @@
 ﻿using System;
 using Unity.Netcode;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 
 namespace Runtime
@@ -11,6 +12,7 @@ namespace Runtime
         private static int DELTA_SIDEWAYS_PARAMETER_ID = Animator.StringToHash("DeltaSideways");
         
         [SerializeField] private Renderer _characterRenderer;
+        [SerializeField] private Collider _characterCollider;
         [SerializeField] private Animator _characterAnimator;
         
         [SerializeField] private MappedTransform _headTransform;
@@ -33,9 +35,16 @@ namespace Runtime
         public override void OnNetworkSpawn()
         {
             base.OnNetworkSpawn();
-            if (IsOwner && !Application.isEditor)
+            if (IsOwner)
             {
                 _characterRenderer.enabled = false;
+                _characterCollider.gameObject.layer = LayerMask.NameToLayer("LocalPlayer");
+                
+                if (Application.isEditor)
+                {
+                    _characterRenderer.enabled = true;
+                    _characterRenderer.gameObject.SetLayerRecursively(LayerMask.NameToLayer("EditorOnly"));
+                }
             }
 
             _lastTrackedPosition = _headTransform.Transform.position;
