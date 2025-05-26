@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 4827712134655925388}
   - component: {fileID: 4535906808182784665}
   - component: {fileID: 8488803073266326153}
+  - component: {fileID: 1906051012025778523}
   m_Layer: 0
   m_Name: CastingGestures
   m_TagString: Untagged
@@ -471,6 +472,19 @@ MonoBehaviour:
     - {fileID: 74907807545651672}
     - {fileID: 5747443094999050888}
     _values: 1f000000250000001300000020000000
+--- !u!114 &1906051012025778523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6125642784564340106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33207ed7e7ca44229660104cf1c0e1a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spellFiringController: {fileID: 4535906808182784665}
 --- !u!1 &7973723658047830785
 GameObject:
   m_ObjectHideFlags: 0
