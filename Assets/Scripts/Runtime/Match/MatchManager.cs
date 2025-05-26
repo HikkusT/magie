@@ -55,7 +55,8 @@ namespace Magie.Match
                     if (_readyZones.Any(it => !it.IsReady)) break;
                     
                     _matchState.Value = MatchState.Countdown;
-                    _playersInMatch.AddRange(FindObjectsOfType<Player>());
+                    _playersInMatch.AddRange(FindObjectsByType<Player>(FindObjectsSortMode.None));
+                    _playersInMatch.ForEach(it => it.InitializeForCombat());
                     _countdown = Instantiate(_countdownPrefab, Vector3.zero, Quaternion.identity);
                     _countdown.GetComponent<NetworkObject>().Spawn();
                     break;
@@ -70,9 +71,11 @@ namespace Magie.Match
                 }
                 case MatchState.Running:
                 {
-                    if (_playersInMatch.All(it => it != null) && _playersInMatch.All(it => it.CurrentHealth.Value > 0)) break;
-                    
-                    _matchState.Value = MatchState.WaitingForPlayers;
+                    if (_playersInMatch.Any(it => it == null) || _playersInMatch.All(it => it.CurrentHealth.Value <= 0))
+                    {
+                        _matchState.Value = MatchState.WaitingForPlayers;
+                    }
+
                     break;
                 }
             } 

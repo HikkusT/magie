@@ -40,9 +40,9 @@ namespace Magie
                 $"Is Server: {NetworkManager.Singleton.IsServer}\n" +
                 $"Is Client: {NetworkManager.Singleton.IsClient}\n" +
                 $"Local Client ID: {NetworkManager.Singleton.LocalClientId}\n" +
-                $"Lobby ID: {(_connectedLobby.Id ?? "N/A")}\n" +
-                $"Lobby Name: {(_connectedLobby.Name ?? "N/A")}\n" +
-                $"Players in Lobby: {(_connectedLobby.Players?.Count ?? 0)}\n";
+                $"Lobby ID: {(_connectedLobby?.Id ?? "N/A")}\n" +
+                $"Lobby Name: {(_connectedLobby?.Name ?? "N/A")}\n" +
+                $"Players in Lobby: {(_connectedLobby?.Players?.Count ?? 0)}\n";
 
         }
 

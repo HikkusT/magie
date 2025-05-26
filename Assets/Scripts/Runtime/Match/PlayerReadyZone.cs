@@ -63,7 +63,11 @@ namespace Magie.Match
         public void Freeze()
         {
             _isFrozen = true;
-            _progress.Value = 1f;
+
+            if (IsServer)
+            {
+                _progress.Value = 1f;
+            }
         }
         
         private void OnDisable()

@@ -11,8 +11,6 @@ namespace Magie.Spells
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private ParticleSystem _onCollisionVfx;
 
-        private CancellationTokenSource _trajectoryCts = new();
-
         public void PlayTrajectory(Vector3 target)
         {
             Vector3 direction = (target - transform.position).normalized;
@@ -22,7 +20,6 @@ namespace Magie.Spells
 
         private void OnTriggerEnter(Collider _)
         {
-            _trajectoryCts.Cancel();
             Instantiate(_onCollisionVfx, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

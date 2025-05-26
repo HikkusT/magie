@@ -19,7 +19,7 @@ namespace Multiplayer
         public void SpawnConstructionSpell(GameObject prefab, Vector3 position, Quaternion rotation)
         {
             uint prefabId = NetworkManager.Singleton.NetworkConfig.Prefabs.Prefabs.First(it => it.Prefab == prefab).SourcePrefabGlobalObjectIdHash;
-            RequestSpawnServerRpc(prefabId, position, rotation);;
+            RequestSpawnServerRpc(prefabId, position, rotation);
         }
         
         [ServerRpc]

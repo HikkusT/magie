@@ -382,6 +382,8 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   <InitialHealth>k__BackingField: 10
   _healthVisuals: {fileID: 20271674938806236}
+  _visualRoot: {fileID: 2778165930458708647}
+  _hitVfx: {fileID: 5817868033491761074, guid: 3cc3c05fb06038944b89a0ef4b3cd6c0, type: 3}
 --- !u!1 &3931737561175142548
 GameObject:
   m_ObjectHideFlags: 0
