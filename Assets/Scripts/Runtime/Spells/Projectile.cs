@@ -1,6 +1,5 @@
-﻿using System;
-using System.Threading;
-using Cysharp.Threading.Tasks;
+﻿using Multiplayer;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Magie.Spells
@@ -11,15 +10,32 @@ namespace Magie.Spells
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private ParticleSystem _onCollisionVfx;
 
-        public void PlayTrajectory(Vector3 target)
+        private ulong _ownerId;
+
+        public void PlayTrajectory(Vector3 target, ulong ownerId)
         {
             Vector3 direction = (target - transform.position).normalized;
             transform.rotation = Quaternion.LookRotation(direction);
             _rigidbody.linearVelocity = direction * _speed;
+            _ownerId = ownerId;
         }
 
-        private void OnTriggerEnter(Collider _)
+        private void OnTriggerEnter(Collider collider)
         {
+            if (collider.gameObject.name == "LocalPlayer") return;
+            
+            Player collidedPlayer = collider.GetComponentInParent<Player>();
+
+            if (collidedPlayer != null && _ownerId == collidedPlayer.OwnerClientId)
+            {
+                return;
+            }
+
+            if (collidedPlayer != null && _ownerId == NetworkManager.Singleton.LocalClientId)
+            {
+                collidedPlayer.ReceiveDamageServerRpc(1);
+            }
+            
             Instantiate(_onCollisionVfx, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

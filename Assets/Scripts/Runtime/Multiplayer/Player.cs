@@ -34,8 +34,8 @@ namespace Multiplayer
             CurrentHealth.Value = InitialHealth;
         }
 
-        [ServerRpc]
-        private void ReceiveDamageServerRpc(int damage)
+        [ServerRpc(RequireOwnership = false)]
+        public void ReceiveDamageServerRpc(int damage)
         {
             if (CurrentHealth.Value <= 0) return;
             

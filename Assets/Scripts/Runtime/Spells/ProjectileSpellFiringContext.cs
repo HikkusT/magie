@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Magie.Spells
 {
@@ -23,8 +22,7 @@ namespace Magie.Spells
                 return;
             }
 
-            Projectile projectile = Object.Instantiate(Spell.Prefab, SpellOrigin.position, Quaternion.identity);
-            projectile.PlayTrajectory(target.position);
+            spellSpawner.SpawnProjectileSpell(Spell.Prefab, SpellOrigin.position, SpellOrigin.rotation, target);
 
             _lastFiredAt = DateTime.Now;
             _numberOfTriggers++;

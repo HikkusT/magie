@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
+  _spellTable: {fileID: 11400000, guid: 79e972d27bda147c48a23d1a3c99dc67, type: 2}
 --- !u!114 &7963186489406249785
 MonoBehaviour:
   m_ObjectHideFlags: 0
