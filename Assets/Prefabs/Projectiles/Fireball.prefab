@@ -4940,7 +4940,7 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -4955,7 +4955,7 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -4970,7 +4970,7 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
 --- !u!114 &8658666410451186535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5003,12 +5003,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 74017018402304391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f812b6fb9374fc98d47fc59aa447cbf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b8ec97f91094a5db471f0cf167bc752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 30
   _rigidbody: {fileID: 982244383069174618}
   _onCollisionVfx: {fileID: 4797771753788125615, guid: 0fc514c4c5576a3439bccbcb58854838, type: 3}
+  _damage: 1
 --- !u!135 &4541583936197444858
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Magie.Spells
 {
-    public class Projectile : MonoBehaviour
+    public abstract class Projectile : MonoBehaviour
     {
         [SerializeField] private float _speed;
         [SerializeField] private Rigidbody _rigidbody;
@@ -31,13 +31,29 @@ namespace Magie.Spells
                 return;
             }
 
-            if (collidedPlayer != null && _ownerId == NetworkManager.Singleton.LocalClientId)
+            if (_ownerId == NetworkManager.Singleton.LocalClientId)
             {
-                collidedPlayer.ReceiveDamageServerRpc(1);
+                if (collidedPlayer != null)
+                {
+                    PlayerCollision(collidedPlayer);
+                }
+                else
+                {
+                    TerrainCollision();
+                }
             }
             
             Instantiate(_onCollisionVfx, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
+
+        protected virtual void PlayerCollision(Player player)
+        {
+        }
+
+        protected virtual void TerrainCollision()
+        {
+            
         }
     }
 }
