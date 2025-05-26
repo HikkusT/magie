@@ -16,7 +16,7 @@ namespace Magie.Spells
         public override void TryFire(Transform target, ISpellSpawner spellSpawner)
         {
             Vector3 desiredForward = Vector3.ProjectOnPlane(target.position - SpellOrigin.transform.position, target.up).normalized;
-            spellSpawner.SpawnConstructionSpell(Spell.Prefab, target.position, Quaternion.LookRotation(desiredForward,target.up));
+            spellSpawner.SpawnConstructionSpell(Spell.Prefab, target.position, Quaternion.LookRotation(desiredForward,Spell. AlwaysWorldUp ? Vector3.up : target.up));
             OnDepleted?.Invoke();
         }
 

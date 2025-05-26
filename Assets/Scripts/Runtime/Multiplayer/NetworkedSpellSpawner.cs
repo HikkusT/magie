@@ -51,8 +51,10 @@ namespace Multiplayer
         private void SpawnProjectileClientRpc(string spellName, Vector3 position, Quaternion rotation, Vector3 targetPosition, ulong owner)
         {
             if (NetworkManager.Singleton.LocalClientId == owner) return;
-    
-            ProjectileSpell spell = _spellTable.LookUp.Values.Cast<ProjectileSpell>().First(it => it?.Prefab.name == spellName);
+
+            ProjectileSpell spell =
+                _spellTable.LookUp.Values.First(it => (it as ProjectileSpell)?.Prefab.name == spellName) as
+                    ProjectileSpell;
             if (spell == null) return;
             
             Projectile projectile = Instantiate(spell.Prefab, position, rotation);
