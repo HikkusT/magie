@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec4c6951f93498fb12a4b8da33dd275, type: 3}
-  m_Name: Fireball
+  m_Script: {fileID: 11500000, guid: d711e7e4ea8041298883e07f1a130ad6, type: 3}
+  m_Name: Rain
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 8964459635532599746, guid: 368e3cd68bf9ada4ba32f282544dab20, type: 3}
-  _shootingCooldownInSeconds: 1
-  _isUnlimitedProjectiles: 0
-  _numberOfProjectiles: 3
+  _prefab: {fileID: 9033369682234165752, guid: 807e320d17a00f347aa4d3a0be9bf19c, type: 3}
