@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  _ttlInSeconds: 30
+  _ttlInSeconds: 8
   _shouldApplyeffects: 0
   _scaleDurationInSeconds: 0.5
   _scaleEase: 10
