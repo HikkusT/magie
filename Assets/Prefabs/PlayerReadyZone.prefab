@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 7873945533857106800}
   - component: {fileID: 4632706346055006933}
   - component: {fileID: 3041583884398491216}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerReadyZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

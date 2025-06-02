@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Magie.Spells
 {
-    public abstract class Projectile : MonoBehaviour
+    public abstract class Projectile : MonoBehaviour, IPushable
     {
         [SerializeField] private float _speed;
         [SerializeField] private Rigidbody _rigidbody;
@@ -23,6 +23,7 @@ namespace Magie.Spells
         private void OnTriggerEnter(Collider collider)
         {
             if (collider.gameObject.name == "LocalPlayer") return;
+            if ((LayerMask.GetMask("IgnoreSpellCollision") & ( 1 << collider.gameObject.layer)) != 0) return;
             
             Player collidedPlayer = collider.GetComponentInParent<Player>();
 
@@ -54,6 +55,12 @@ namespace Magie.Spells
         protected virtual void TerrainCollision()
         {
             
+        }
+
+        public void ReceivePush(Vector3 direction)
+        {
+            // _rigidbody.linearVelocity = Vector3.Slerp(_rigidbody.linearVelocity, direction * _speed, 0.1f);
+            _rigidbody.linearVelocity = direction * _speed;
         }
     }
 }
