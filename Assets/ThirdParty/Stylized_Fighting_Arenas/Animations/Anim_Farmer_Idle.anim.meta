@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ae9dbbcc53716254ca3fa5e234d4ec47
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Animations/Anim_Farmer_Idle.anim
+  uploadId: 733283

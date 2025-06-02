@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d711e7e4ea8041298883e07f1a130ad6, type: 3}
+  m_Name: Wind
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 3113326730768904606, guid: adf4a386509f646448c08e13d29e707a, type: 3}
+  _alwaysWorldUp: 1
+  _fromPlayer: 1

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6c4b3aafb5784724a87044a1454c9b2d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Scenes/Scene_Skyscraper/LightingData.asset
+  uploadId: 733283

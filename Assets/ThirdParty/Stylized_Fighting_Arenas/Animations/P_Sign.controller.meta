@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9f382cdfd20584b4c852b757361d32e4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Animations/P_Sign.controller
+  uploadId: 733283

@@ -121,7 +121,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6360326422520533655}
-  m_Father: {fileID: 3134404185726696539}
+  m_Father: {fileID: 3298279373016473629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3192574782904278476
 MonoBehaviour:
@@ -298,7 +298,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3298279373016473629}
-  - {fileID: 1847711842856673435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7247700722030996824
@@ -340,6 +339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   _characterRenderer: {fileID: 1970189208319926058}
+  _characterCollider: {fileID: 7423873452948375363}
   _characterAnimator: {fileID: 1318513733954041983}
   _headTransform:
     <Transform>k__BackingField: {fileID: 164184065893855945}
@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
+  _spellTable: {fileID: 11400000, guid: 79e972d27bda147c48a23d1a3c99dc67, type: 2}
 --- !u!114 &7963186489406249785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +383,8 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   <InitialHealth>k__BackingField: 10
   _healthVisuals: {fileID: 20271674938806236}
+  _visualRoot: {fileID: 2778165930458708647}
+  _hitVfx: {fileID: 5817868033491761074, guid: 3cc3c05fb06038944b89a0ef4b3cd6c0, type: 3}
 --- !u!1 &3931737561175142548
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,6 +937,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3399577024905562541, guid: 24d6f14f4e53cbb4988ad233c8fb972d, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3580883431902529422, guid: 24d6f14f4e53cbb4988ad233c8fb972d, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -948,11 +955,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2622900270738379543, guid: 24d6f14f4e53cbb4988ad233c8fb972d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1847711842856673435}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3399577024905562541, guid: 24d6f14f4e53cbb4988ad233c8fb972d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1741307961912437267}
+    - targetCorrespondingSourceObject: {fileID: 3399577024905562541, guid: 24d6f14f4e53cbb4988ad233c8fb972d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7423873452948375363}
+    - targetCorrespondingSourceObject: {fileID: 3399577024905562541, guid: 24d6f14f4e53cbb4988ad233c8fb972d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4124022851896894959}
     - targetCorrespondingSourceObject: {fileID: 14603972290098749, guid: 24d6f14f4e53cbb4988ad233c8fb972d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6675139164708163749}
@@ -1080,6 +1096,56 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!136 &7423873452948375363
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2778165930458708647}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &4124022851896894959
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2778165930458708647}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &3298279373016473629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2622900270738379543, guid: 24d6f14f4e53cbb4988ad233c8fb972d, type: 3}

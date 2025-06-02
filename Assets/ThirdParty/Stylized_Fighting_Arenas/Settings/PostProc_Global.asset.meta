@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2d2b4d9e50330504ba6a465be7ad42cb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Settings/PostProc_Global.asset
+  uploadId: 733283

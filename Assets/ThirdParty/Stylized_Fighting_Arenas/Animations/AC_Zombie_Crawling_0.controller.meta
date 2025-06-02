@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 08adb59af3c634b48a388565e0169964
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Animations/AC_Zombie_Crawling_0.controller
+  uploadId: 733283

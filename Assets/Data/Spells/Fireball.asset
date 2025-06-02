@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec4c6951f93498fb12a4b8da33dd275, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  _name: Fireball
   _prefab: {fileID: 8964459635532599746, guid: 368e3cd68bf9ada4ba32f282544dab20, type: 3}
-  _shootingCooldownInSeconds: 0.5
+  _shootingCooldownInSeconds: 1
   _isUnlimitedProjectiles: 0
-  _numberOfProjectiles: 10
+  _numberOfProjectiles: 3

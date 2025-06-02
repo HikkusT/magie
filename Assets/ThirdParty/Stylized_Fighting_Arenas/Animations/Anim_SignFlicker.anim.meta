@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: efe186db27f492d4693192a460b63091
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Animations/Anim_SignFlicker.anim
+  uploadId: 733283

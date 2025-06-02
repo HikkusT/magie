@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ca3306a87421a9e4d85cef59a819de2a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Materials/Arena_Skyscraper/M_FakeFog.mat
+  uploadId: 733283

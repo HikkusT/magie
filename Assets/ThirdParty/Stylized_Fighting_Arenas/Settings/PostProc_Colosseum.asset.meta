@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d3d806f43058b6940b10c7ac2ba0dde4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Settings/PostProc_Colosseum.asset
+  uploadId: 733283

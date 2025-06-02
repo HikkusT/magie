@@ -1,5 +1,6 @@
 ﻿using System;
 using Unity.Netcode;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 
 namespace Runtime
@@ -11,6 +12,7 @@ namespace Runtime
         private static int DELTA_SIDEWAYS_PARAMETER_ID = Animator.StringToHash("DeltaSideways");
         
         [SerializeField] private Renderer _characterRenderer;
+        [SerializeField] private Collider _characterCollider;
         [SerializeField] private Animator _characterAnimator;
         
         [SerializeField] private MappedTransform _headTransform;
@@ -33,9 +35,16 @@ namespace Runtime
         public override void OnNetworkSpawn()
         {
             base.OnNetworkSpawn();
-            if (IsOwner && !Application.isEditor)
+            if (IsOwner)
             {
                 _characterRenderer.enabled = false;
+                _characterCollider.gameObject.layer = LayerMask.NameToLayer("LocalPlayer");
+                
+                if (Application.isEditor)
+                {
+                    _characterRenderer.enabled = true;
+                    _characterRenderer.gameObject.SetLayerRecursively(LayerMask.NameToLayer("EditorOnly"));
+                }
             }
 
             _lastTrackedPosition = _headTransform.Transform.position;
@@ -59,11 +68,13 @@ namespace Runtime
             playerVelocity.y = 0;
             playerVelocity = transform.InverseTransformDirection(playerVelocity);
             
-            _characterAnimator.SetBool(IS_WALKING_PARAMETER_ID, playerVelocity.magnitude > _minimumWalkingSpeed);
-            _characterAnimator.SetFloat(DELTA_FORWARD_PARAMETER_ID, playerVelocity.z);
-            _characterAnimator.SetFloat(DELTA_SIDEWAYS_PARAMETER_ID, playerVelocity.x);
+            Vector3 animationVelocity = Vector3.Lerp(_lastTrackedVelocity, playerVelocity, 0.2f);
+            _characterAnimator.SetBool(IS_WALKING_PARAMETER_ID, animationVelocity.magnitude > _minimumWalkingSpeed);
+            _characterAnimator.SetFloat(DELTA_FORWARD_PARAMETER_ID, animationVelocity.z);
+            _characterAnimator.SetFloat(DELTA_SIDEWAYS_PARAMETER_ID, animationVelocity.x);
             
             _lastTrackedPosition = _headTransform.Transform.position;
+            _lastTrackedVelocity = animationVelocity;
         }
         
         [Serializable]

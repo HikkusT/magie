@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2755d852efcd36240a4170e3be3cc030
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298528
+  packageName: Stylized Fighting Arenas
+  packageVersion: 1.1
+  assetPath: Assets/Stylized_Fighting_Arenas/Settings/PostProc_Skyscrapers.asset
+  uploadId: 733283

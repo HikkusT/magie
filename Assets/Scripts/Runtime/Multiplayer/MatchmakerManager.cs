@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
@@ -19,10 +20,30 @@ namespace Magie
         private const string RELAY_CODE_PARAMETER_KEY = "relay_code";
         
         [SerializeField] private int _maxPlayers = 2;
+        [SerializeField] private TMP_Text _debugText;
+
+        private Lobby _connectedLobby;
 
         private void Start()
         {
             Init().Forget();
+        }
+
+        private void Update()
+        {
+            if (_debugText == null) return;
+            
+            _debugText.text = 
+                $"Signed In: {AuthenticationService.Instance.IsSignedIn}\n" +
+                $"Connected: {NetworkManager.Singleton.IsConnectedClient}\n" +
+                $"Is Host: {NetworkManager.Singleton.IsHost}\n" +
+                $"Is Server: {NetworkManager.Singleton.IsServer}\n" +
+                $"Is Client: {NetworkManager.Singleton.IsClient}\n" +
+                $"Local Client ID: {NetworkManager.Singleton.LocalClientId}\n" +
+                $"Lobby ID: {(_connectedLobby?.Id ?? "N/A")}\n" +
+                $"Lobby Name: {(_connectedLobby?.Name ?? "N/A")}\n" +
+                $"Players in Lobby: {(_connectedLobby?.Players?.Count ?? 0)}\n";
+
         }
 
         private async UniTaskVoid Init()
@@ -40,28 +61,29 @@ namespace Magie
 
         private async UniTask TryJoinOrCreateLobby(CancellationToken ct)
         {
-            Lobby joinedLobby;
- 
             try
             {
-                joinedLobby = await JoinRandomLobby();
+                _connectedLobby = await JoinRandomLobby();
             }
             catch (Exception e)
             {
                 Debug.LogException(e);
                 Debug.Log("Join lobby failed, creating one...");
                 
-                joinedLobby = await CreateLobby();
+                _connectedLobby = await CreateLobby();
             }
 
             while (!ct.IsCancellationRequested)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(15), cancellationToken: ct);
 
-                if (joinedLobby.HostId == AuthenticationService.Instance.PlayerId)
+                if (_connectedLobby.HostId == AuthenticationService.Instance.PlayerId)
                 {
-                    await LobbyService.Instance.SendHeartbeatPingAsync(joinedLobby.Id);
+                    await LobbyService.Instance.SendHeartbeatPingAsync(_connectedLobby.Id);
                 }
+                
+                // Refresh lobby
+                _connectedLobby = await LobbyService.Instance.GetLobbyAsync(_connectedLobby.Id);
             }
         }
 
