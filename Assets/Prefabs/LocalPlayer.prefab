@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7070670658572397966}
   - component: {fileID: 5540782419115390957}
   - component: {fileID: 5626121194543975246}
+  - component: {fileID: 3368564393727417193}
   m_Layer: 2
   m_Name: LocalPlayer
   m_TagString: Untagged
@@ -134,6 +135,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnCenter: {x: 0, y: 1, z: 0}
   _spawnRadius: 4
+--- !u!114 &3368564393727417193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2579767177809504699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d83c5455324076822b15a15db789d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterController: {fileID: 5540782419115390957}
+  _slowAmount: 0.5
 --- !u!1 &2879475032552236082
 GameObject:
   m_ObjectHideFlags: 0
