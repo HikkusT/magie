@@ -17,7 +17,7 @@ namespace Magie.Spells
         {
             Vector3 desiredForward = Vector3.ProjectOnPlane(target.position - SpellOrigin.transform.position, Spell.AlwaysWorldUp ? Vector3.up : target.up).normalized;
             spellSpawner.SpawnConstructionSpell(Spell.Prefab,
-                Spell.FromPlayer ? SpellOrigin.transform.position : target.position,
+                Spell.CalculateSpawnPosition(SpellOrigin.transform, target),
                 Quaternion.LookRotation(desiredForward, Spell.AlwaysWorldUp ? Vector3.up : target.up));
             OnDepleted?.Invoke();
         }

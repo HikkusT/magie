@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using SaintsField;
@@ -28,13 +29,13 @@ namespace Magie.Spells
 
             if (IsOwner)
             {
-                DespawnAfter(TimeSpan.FromSeconds(_ttlInSeconds)).Forget();
+                DespawnAfter(TimeSpan.FromSeconds(_ttlInSeconds), this.GetCancellationTokenOnDestroy()).Forget();
             }
         }
 
-        private async UniTaskVoid DespawnAfter(TimeSpan duration)
+        private async UniTaskVoid DespawnAfter(TimeSpan duration, CancellationToken ct)
         {
-            await UniTask.Delay(duration);
+            await UniTask.Delay(duration, cancellationToken: ct);
             
             GetComponent<NetworkObject>().Despawn();
         }
