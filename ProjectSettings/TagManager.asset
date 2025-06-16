@@ -6,6 +6,7 @@ TagManager:
   tags:
   - QDSUIBackplateGradient
   - AreaOfEffect
+  - Solid
   layers:
   - Default
   - TransparentFX
