@@ -96,7 +96,7 @@ MonoBehaviour:
   _collisionListener: {fileID: 7300738100667340040}
   _boulder: {fileID: 5002528899786559126}
   _damage: 3
-  _speed: 3
+  _speed: 5
   _angularSpeed: 60
 --- !u!114 &741574830483597022
 MonoBehaviour:

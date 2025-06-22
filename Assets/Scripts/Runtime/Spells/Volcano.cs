@@ -8,6 +8,7 @@ namespace Magie.Spells
     public class Volcano : NetworkBehaviour
     {
         [SerializeField] private int _damage;
+        [SerializeField] private ParticleSystem _triggerVFX;
         
         private readonly HashSet<Player> _playersInArea = new HashSet<Player>();
 
@@ -27,12 +28,19 @@ namespace Magie.Spells
             _playersInArea.Remove(collidedPlayer);
         }
 
-        private void TriggerDamage()
+        public override void OnNetworkDespawn()
         {
-            foreach (Player player in _playersInArea)
+            Instantiate(_triggerVFX, transform.position, Quaternion.identity);
+
+            if (HasAuthority)
             {
-                player.ReceiveDamageServerRpc(_damage);
+                foreach (Player player in _playersInArea)
+                {
+                    player.ReceiveDamageServerRpc(_damage);
+                }
             }
+
+            base.OnNetworkDespawn();
         }
     }
 }
