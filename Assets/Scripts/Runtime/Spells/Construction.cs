@@ -17,6 +17,8 @@ namespace Magie.Spells
         [SerializeField, ShowIf(nameof(_shouldApplyeffects))] private Ease _scaleEase = Ease.InOutCubic;
         [SerializeField, ShowIf(nameof(_shouldApplyeffects))] private List<ParticleSystem> _scaleParticles;
         [SerializeField, ShowIf(nameof(_shouldApplyeffects))] private Transform _visualRoot;
+        
+        public TimeSpan TTL => TimeSpan.FromSeconds(_ttlInSeconds);
 
         public override void OnNetworkSpawn()
         {
