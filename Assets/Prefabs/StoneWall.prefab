@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2435976228201605194}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Solid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   _ttlInSeconds: 7
+  _shouldApplyeffects: 1
   _scaleDurationInSeconds: 1
   _scaleEase: 10
   _scaleParticles:

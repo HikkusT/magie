@@ -16,5 +16,10 @@ namespace Magie.Spells
         
         public override ASpellFiringContext CreateContext(Transform spellOrigin, Action onContextClosure) =>
             new ConstructionSpellFiringContext(this, spellOrigin, onContextClosure);
+
+        public virtual Vector3 CalculateSpawnPosition(Transform origin, Transform target)
+        {
+            return FromPlayer ? origin.position : target.position;
+        }
     }
 }

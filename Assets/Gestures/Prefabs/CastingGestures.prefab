@@ -448,7 +448,7 @@ MonoBehaviour:
   _targetIndicator: {fileID: 6495218841991840537}
   _targetCollisionMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 513
   _hoverOffset: 0.01
   _lerpSpeed: 0.3
 --- !u!114 &8488803073266326153

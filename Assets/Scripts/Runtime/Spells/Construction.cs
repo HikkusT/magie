@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using SaintsField;
@@ -16,6 +17,14 @@ namespace Magie.Spells
         [SerializeField, ShowIf(nameof(_shouldApplyeffects))] private Ease _scaleEase = Ease.InOutCubic;
         [SerializeField, ShowIf(nameof(_shouldApplyeffects))] private List<ParticleSystem> _scaleParticles;
         [SerializeField, ShowIf(nameof(_shouldApplyeffects))] private Transform _visualRoot;
+        
+        public TimeSpan TTL => TimeSpan.FromSeconds(_ttlInSeconds);
+        public ulong CasterId { get; private set; }
+        
+        public void Setup(ulong casterId)
+        {
+            CasterId = casterId;
+        }
 
         public override void OnNetworkSpawn()
         {
@@ -28,13 +37,13 @@ namespace Magie.Spells
 
             if (IsOwner)
             {
-                DespawnAfter(TimeSpan.FromSeconds(_ttlInSeconds)).Forget();
+                DespawnAfter(TimeSpan.FromSeconds(_ttlInSeconds), this.GetCancellationTokenOnDestroy()).Forget();
             }
         }
 
-        private async UniTaskVoid DespawnAfter(TimeSpan duration)
+        private async UniTaskVoid DespawnAfter(TimeSpan duration, CancellationToken ct)
         {
-            await UniTask.Delay(duration);
+            await UniTask.Delay(duration, cancellationToken: ct);
             
             GetComponent<NetworkObject>().Despawn();
         }
