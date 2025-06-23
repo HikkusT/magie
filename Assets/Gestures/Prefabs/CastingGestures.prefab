@@ -399,7 +399,6 @@ MonoBehaviour:
   - {fileID: 6354601391587741537}
   - {fileID: 4454572381050501628}
   - {fileID: 74907807545651672}
-  - {fileID: 5747443094999050888}
   _spellTable: {fileID: 11400000, guid: 79e972d27bda147c48a23d1a3c99dc67, type: 2}
   _maxNumberOfElementsInSpell: 2
   _onCastingBufferUpdated:
@@ -587,6 +586,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4546864884768940171, guid: d05814780254f4ec3a5fcf34c087948c, type: 3}
+      propertyPath: _element
+      value: 
+      objectReference: {fileID: 11400000, guid: ef323ae7a8d29445b9c1354066d164dc, type: 2}
     - target: {fileID: 5531633371536537447, guid: d05814780254f4ec3a5fcf34c087948c, type: 3}
       propertyPath: m_Name
       value: CastingMiddleFinger
@@ -881,6 +884,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4546864884768940171, guid: 3cc3e3d08ff9e4ac6b6b553bd803071c, type: 3}
+      propertyPath: _element
+      value: 
+      objectReference: {fileID: 11400000, guid: 556badeeae1fa47bb8db09cd9d8850b6, type: 2}
     - target: {fileID: 5531633371536537447, guid: 3cc3e3d08ff9e4ac6b6b553bd803071c, type: 3}
       propertyPath: m_Name
       value: CastingIndexFinger
@@ -1046,6 +1053,10 @@ PrefabInstance:
     - target: {fileID: 5531633371536537447, guid: 9124381e8603e4660bc57ab1b2be5421, type: 3}
       propertyPath: m_Name
       value: CastingThumbFinger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531633371536537447, guid: 9124381e8603e4660bc57ab1b2be5421, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8275059527709627968, guid: 9124381e8603e4660bc57ab1b2be5421, type: 3}
       propertyPath: _hand
