@@ -23,7 +23,7 @@ namespace Multiplayer
         public void SpawnConstructionSpell(GameObject prefab, Vector3 position, Quaternion rotation)
         {
             uint prefabId = NetworkManager.Singleton.NetworkConfig.Prefabs.Prefabs.First(it => it.Prefab == prefab).SourcePrefabGlobalObjectIdHash;
-            RequestSpawnServerRpc(prefabId, position, rotation);
+            RequestSpawnConstructionServerRpc(prefabId, position, rotation);
         }
 
         public void SpawnProjectileSpell(Projectile prefab, Vector3 position, Quaternion rotation, Transform target)
@@ -34,10 +34,11 @@ namespace Multiplayer
         }
 
         [ServerRpc]
-        private void RequestSpawnServerRpc(uint prefabId, Vector3 position, Quaternion rotation)
+        private void RequestSpawnConstructionServerRpc(uint prefabId, Vector3 position, Quaternion rotation, ServerRpcParams rpcParams = default)
         {
             GameObject prefab = NetworkManager.Singleton.NetworkConfig.Prefabs.Prefabs.First(it => it.SourcePrefabGlobalObjectIdHash == prefabId).Prefab;
             var instance = Instantiate(prefab, position, rotation);
+            instance.GetComponent<Construction>().Setup(rpcParams.Receive.SenderClientId);
             instance.GetComponent<NetworkObject>().Spawn();
         }
         

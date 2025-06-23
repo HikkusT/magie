@@ -19,6 +19,12 @@ namespace Magie.Spells
         [SerializeField, ShowIf(nameof(_shouldApplyeffects))] private Transform _visualRoot;
         
         public TimeSpan TTL => TimeSpan.FromSeconds(_ttlInSeconds);
+        public ulong CasterId { get; private set; }
+        
+        public void Setup(ulong casterId)
+        {
+            CasterId = casterId;
+        }
 
         public override void OnNetworkSpawn()
         {
