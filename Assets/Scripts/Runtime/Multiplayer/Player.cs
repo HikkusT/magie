@@ -11,6 +11,7 @@ namespace Multiplayer
         [field: SerializeField] public int InitialHealth { get; private set; }
 
         [SerializeField] private HealthVisuals _healthVisuals;
+        [SerializeField] private HealthVisuals _healthVisualsArm;
         [SerializeField] private GameObject _visualRoot;
         [SerializeField] private ParticleSystem _hitVfx;
 
@@ -21,6 +22,17 @@ namespace Multiplayer
         public override void OnNetworkSpawn()
         {
             _healthVisuals.Setup(this);
+
+            if (IsOwner && _healthVisualsArm != null)
+            {
+                _healthVisualsArm.Setup(this);
+                _healthVisualsArm.gameObject.SetActive(true);
+            }
+            else if (_healthVisualsArm != null)
+            {
+                _healthVisualsArm.gameObject.SetActive(false);
+            }
+
         }
 
         private void Update()
