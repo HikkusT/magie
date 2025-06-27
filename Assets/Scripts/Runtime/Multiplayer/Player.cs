@@ -16,6 +16,8 @@ namespace Multiplayer
 
         public readonly NetworkVariable<int> CurrentHealth = new NetworkVariable<int>();
 
+        private int? _fallDamage;
+
         public override void OnNetworkSpawn()
         {
             _healthVisuals.Setup(this);
@@ -27,11 +29,22 @@ namespace Multiplayer
             {
                 ReceiveDamageServerRpc(1);
             }
+
+            if (IsOwner && _fallDamage.HasValue && transform.position.y < 0.5f)
+            {
+                ReceiveDamageServerRpc(_fallDamage.Value);
+                _fallDamage = null;
+            }
         }
 
         public void InitializeForCombat()
         {
             CurrentHealth.Value = InitialHealth;
+        }
+
+        public void SetupFallDamage(int damage)
+        {
+            _fallDamage = damage;
         }
 
         [ServerRpc(RequireOwnership = false)]

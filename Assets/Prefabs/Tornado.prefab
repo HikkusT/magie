@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
+  _fallDamage: 1
   _lift: 5
   _power: 7
   _pushFactor: 0.8

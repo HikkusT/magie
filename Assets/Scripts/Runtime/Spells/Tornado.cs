@@ -4,22 +4,27 @@ using Multiplayer;
 using Oculus.Interaction;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Tween = Oculus.Interaction.Tween;
 
 namespace Magie.Spells
 {
     public class Tornado : NetworkBehaviour, IPushable
     {
+        [FormerlySerializedAs("_damage")] [SerializeField] private int _fallDamage;
         [SerializeField] private float _lift;
         [SerializeField] private float _power = 7f;
         [SerializeField] private float _pushFactor;
 
         OVRPlayerController _localPlayer = null;
+        Player _player = null;
         private static DG.Tweening.Tween _vignetteAnimation = null;
         
         private void OnTriggerStay(Collider other)
         {
             if (other.gameObject.layer != LayerMask.NameToLayer("LocalPlayer")) return;
+            
+            _player = other.GetComponentInParent<Player>();
 
             if (_localPlayer == null)
             {
@@ -63,7 +68,9 @@ namespace Magie.Spells
             if (_localPlayer == null) return;
             
             _localPlayer.GravityModifier = 0.1f;
+            _player.SetupFallDamage(_fallDamage);
             _localPlayer = null;
+            _player = null;
 
             if (_vignetteAnimation.IsActive())
             {
