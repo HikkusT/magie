@@ -1,6 +1,9 @@
 ﻿using System;
+using DG.Tweening;
 using Multiplayer;
+using Oculus.Interaction;
 using UnityEngine;
+using Tween = Oculus.Interaction.Tween;
 
 namespace Magie.Spells
 {
@@ -11,6 +14,7 @@ namespace Magie.Spells
         [SerializeField] private float _pushFactor;
 
         OVRPlayerController _localPlayer = null;
+        private static DG.Tweening.Tween _vignetteAnimation = null;
         
         private void OnTriggerStay(Collider other)
         {
@@ -19,7 +23,14 @@ namespace Magie.Spells
             if (_localPlayer == null)
             {
                 _localPlayer = FindObjectOfType<OVRPlayerController>();
+                if (_vignetteAnimation.IsActive())
+                {
+                    _vignetteAnimation.Kill();
+                }
+                TunnelingEffect tunnelingEffect = FindObjectOfType<TunnelingEffect>();
+                _vignetteAnimation = DOTween.To(() => tunnelingEffect.AlphaStrength, x => tunnelingEffect.AlphaStrength = x, 0.9f, .3f);
             }
+            
             _localPlayer.GravityModifier = 0f;
             // _localPlayer.transform.position = Vector3.Lerp(_localPlayer.transform.position, new Vector3(_localPlayer.transform.position.x, _lift, _localPlayer.transform.position.z), 0.1f);
             _localPlayer.transform.position += _power * Time.fixedDeltaTime * (_lift - _localPlayer.transform.position.y) * Vector3.up;
@@ -45,6 +56,13 @@ namespace Magie.Spells
             
             _localPlayer.GravityModifier = 0.1f;
             _localPlayer = null;
+
+            if (_vignetteAnimation.IsActive())
+            {
+                _vignetteAnimation.Kill();
+            }
+            TunnelingEffect tunnelingEffect = FindObjectOfType<TunnelingEffect>();
+            _vignetteAnimation = DOTween.To(() => tunnelingEffect.AlphaStrength, x => tunnelingEffect.AlphaStrength = x, 0f, 1.5f).SetEase(Ease.InCubic);
         }
     }
 }
