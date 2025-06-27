@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8130e7c0bbd0430b8c794d49224d1964, type: 3}
-  m_Name: Boulder
+  m_Script: {fileID: 11500000, guid: d711e7e4ea8041298883e07f1a130ad6, type: 3}
+  m_Name: Tornado
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1137556059902860050, guid: 1522dcd48ea9ace40960b619a960f6f4, type: 3}
+  _prefab: {fileID: 685851561738884153, guid: 3c98d6eb6f2d9d741a018005486f29ad, type: 3}
   _alwaysWorldUp: 1
-  _fromPlayer: 1
-  _offset: 5
-  _groundOffset: 0.05
+  _fromPlayer: 0
