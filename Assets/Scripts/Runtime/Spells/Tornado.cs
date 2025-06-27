@@ -2,12 +2,13 @@
 using DG.Tweening;
 using Multiplayer;
 using Oculus.Interaction;
+using Unity.Netcode;
 using UnityEngine;
 using Tween = Oculus.Interaction.Tween;
 
 namespace Magie.Spells
 {
-    public class Tornado : MonoBehaviour, IPushable
+    public class Tornado : NetworkBehaviour, IPushable
     {
         [SerializeField] private float _lift;
         [SerializeField] private float _power = 7f;
@@ -40,17 +41,24 @@ namespace Magie.Spells
         {
             if (other.gameObject.layer != LayerMask.NameToLayer("LocalPlayer")) return;
             
-            OnDisable();
+            Disable();
         }
         
         public void ReceivePush(Vector3 direction)
         {
-            // if (!HasAuthority) return;
+            if (!HasAuthority) return;
             
             transform.position += Vector3.ProjectOnPlane(direction, transform.up) * _pushFactor * Time.fixedDeltaTime;
         }
 
-        private void OnDisable()
+        public override void OnNetworkDespawn()
+        {
+            base.OnNetworkDespawn();
+
+            Disable();
+        }
+
+        private void Disable()
         {
             if (_localPlayer == null) return;
             

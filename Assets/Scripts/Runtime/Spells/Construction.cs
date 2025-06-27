@@ -17,6 +17,7 @@ namespace Magie.Spells
         [SerializeField, ShowIf(nameof(_shouldApplyeffects))] private Ease _scaleEase = Ease.InOutCubic;
         [SerializeField, ShowIf(nameof(_shouldApplyeffects))] private List<ParticleSystem> _scaleParticles;
         [SerializeField, ShowIf(nameof(_shouldApplyeffects))] private Transform _visualRoot;
+        [SerializeField, ShowIf(nameof(_shouldApplyeffects))] private bool _isFullScale = false;
         
         public TimeSpan TTL => TimeSpan.FromSeconds(_ttlInSeconds);
         public ulong CasterId { get; private set; }
@@ -31,8 +32,16 @@ namespace Magie.Spells
             if (_shouldApplyeffects)
             {
                 _scaleParticles.ForEach(it => it.Play());
-                _visualRoot.DOScaleY(1, _scaleDurationInSeconds).SetEase(_scaleEase)
-                    .OnComplete(() => _scaleParticles.ForEach(it => it.Stop()));
+                if (_isFullScale)
+                {
+                    _visualRoot.DOScale(1, _scaleDurationInSeconds).SetEase(_scaleEase)
+                        .OnComplete(() => _scaleParticles.ForEach(it => it.Stop()));
+                }
+                else
+                {
+                    _visualRoot.DOScaleY(1, _scaleDurationInSeconds).SetEase(_scaleEase)
+                        .OnComplete(() => _scaleParticles.ForEach(it => it.Stop()));
+                }
             }
 
             if (IsOwner)

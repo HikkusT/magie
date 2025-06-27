@@ -13,6 +13,7 @@ namespace Magie.Spells
         [SerializeField] private int _damage;
         [SerializeField] private float _speed;
         [SerializeField] private float _angularSpeed;
+        [SerializeField] private ParticleSystem _destroyParticles;
 
         private void Start()
         {
@@ -45,6 +46,13 @@ namespace Magie.Spells
             }
             
             GetComponent<NetworkObject>().Despawn();
+        }
+
+        public override void OnNetworkDespawn()
+        {
+            base.OnNetworkDespawn();
+            
+            Instantiate(_destroyParticles, _boulder.transform.position, Quaternion.identity).transform.localScale = transform.localScale;
         }
     }
 }

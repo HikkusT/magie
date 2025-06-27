@@ -15,5 +15,5 @@ MonoBehaviour:
   _prefab: {fileID: 1137556059902860050, guid: 1522dcd48ea9ace40960b619a960f6f4, type: 3}
   _alwaysWorldUp: 1
   _fromPlayer: 1
-  _offset: 5
+  _offset: 1.5
   _groundOffset: 0.05
