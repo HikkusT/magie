@@ -1,6 +1,7 @@
 using System;
 using Magie.Spells;
 using UnityEngine;
+using Bhaptics.SDK2;
 
 namespace Magie.Input
 {
@@ -16,6 +17,7 @@ namespace Magie.Input
 
         private ISpellSpawner SpellSpawner = new SinglePlayerSpellSpawner();
         private ASpellFiringContext _spellFiringContext;
+        private bool _isFiring = false;
 
         public void SetupWithNetwork(ISpellSpawner spellSpawner)
         {
@@ -32,6 +34,7 @@ namespace Magie.Input
         {
             _spellFiringContext = null;
             _targetIndicator.gameObject.SetActive(false);
+            _isFiring = false;
         }
 
         public void FireSpell()
@@ -51,6 +54,21 @@ namespace Magie.Input
         private void Update()
         {
             if (_spellFiringContext == null) return;
+
+            float leftTrigger = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.LTouch);
+                        
+            if (leftTrigger > 0.5f && !_isFiring)
+            {
+                _isFiring = true;
+                BhapticsLibrary.Play("firing");
+                _spellFiringContext.TryFire(_targetIndicator, SpellSpawner);
+            }
+            
+            else if (leftTrigger <= 0.5f && _isFiring)
+            {
+                _isFiring = false;
+                _spellFiringContext.TryCancel();
+            }
             
             Ray ray = new Ray(_castingPalm.PalmRoot.position, -_castingPalm.PalmRoot.up);
 
