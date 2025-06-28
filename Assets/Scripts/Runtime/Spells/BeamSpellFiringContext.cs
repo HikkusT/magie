@@ -11,7 +11,9 @@ namespace Magie.Spells
         private readonly BeamSpell Spell;
         private readonly CancellationTokenSource _cts = new();
         private bool _isFiring;
-        
+
+        public override Spell SpellInUse => Spell;
+
         public BeamSpellFiringContext(BeamSpell spell, Transform spellOrigin, Action onDepleted) : base(spellOrigin, onDepleted)
         {
             Spell = spell;

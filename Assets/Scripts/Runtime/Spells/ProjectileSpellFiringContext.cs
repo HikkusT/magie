@@ -9,6 +9,8 @@ namespace Magie.Spells
         private int _numberOfTriggers;
         private DateTime _lastFiredAt;
         
+        public override Spell SpellInUse => Spell;
+        
         public ProjectileSpellFiringContext(ProjectileSpell spell, Transform spellOrigin, Action onDepleted) : base(spellOrigin, onDepleted)
         {
             Spell = spell;

@@ -7,6 +7,8 @@ namespace Magie.Spells
     {
         protected readonly Transform SpellOrigin;
         protected readonly Action OnDepleted;
+
+        public abstract Spell SpellInUse { get; } 
         
         protected ASpellFiringContext(Transform spellOrigin, Action onDepleted)
         {

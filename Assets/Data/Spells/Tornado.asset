@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d711e7e4ea8041298883e07f1a130ad6, type: 3}
   m_Name: Tornado
   m_EditorClassIdentifier: 
+  _forceLookToGround: 1
   _prefab: {fileID: 685851561738884153, guid: 3c98d6eb6f2d9d741a018005486f29ad, type: 3}
   _alwaysWorldUp: 1
   _fromPlayer: 0

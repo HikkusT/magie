@@ -74,8 +74,17 @@ namespace Magie.Input
 
             if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, _targetCollisionMask))
             {
-                _targetIndicator.position = Vector3.Lerp(_targetIndicator.position, hit.point + hit.normal * _hoverOffset, _lerpSpeed);
-                _targetIndicator.rotation = Quaternion.Slerp(_targetIndicator.rotation, Quaternion.FromToRotation(Vector3.up, hit.normal), _lerpSpeed);
+                Vector3 finalPosition = hit.point + hit.normal * _hoverOffset;
+                Quaternion finalRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                
+                if (_spellFiringContext.SpellInUse.ForceLookToGround)
+                {
+                    finalPosition = new Vector3(finalPosition.x, _hoverOffset, finalPosition.z);
+                    finalRotation = Quaternion.identity;
+                }
+                
+                _targetIndicator.position = Vector3.Lerp(_targetIndicator.position, finalPosition, _lerpSpeed);
+                _targetIndicator.rotation = Quaternion.Slerp(_targetIndicator.rotation, finalRotation, _lerpSpeed);
             }
         }
     }

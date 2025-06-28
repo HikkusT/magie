@@ -8,6 +8,8 @@ namespace Magie.Spells
     {
         private readonly ConstructionSpell Spell;
         
+        public override Spell SpellInUse => Spell;
+        
         public ConstructionSpellFiringContext(ConstructionSpell spell, Transform spellOrigin, Action onDepleted) : base(spellOrigin, onDepleted)
         {
             Spell = spell;

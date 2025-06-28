@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d711e7e4ea8041298883e07f1a130ad6, type: 3}
   m_Name: MudPool
   m_EditorClassIdentifier: 
+  _forceLookToGround: 1
   _prefab: {fileID: 3304852073680051936, guid: d5a3f48eb6f5420498e2fd5a8af60415, type: 3}
   _alwaysWorldUp: 1
   _fromPlayer: 0

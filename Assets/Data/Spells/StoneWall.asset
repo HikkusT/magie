@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d711e7e4ea8041298883e07f1a130ad6, type: 3}
   m_Name: StoneWall
   m_EditorClassIdentifier: 
+  _forceLookToGround: 1
   _prefab: {fileID: 1067924876686376284, guid: 0fcdefc593d21754a93b02a8a0aebb02, type: 3}
+  _alwaysWorldUp: 0
+  _fromPlayer: 0

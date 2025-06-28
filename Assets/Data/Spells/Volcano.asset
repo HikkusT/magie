@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d711e7e4ea8041298883e07f1a130ad6, type: 3}
   m_Name: Volcano
   m_EditorClassIdentifier: 
+  _forceLookToGround: 1
   _prefab: {fileID: 3886805739355468150, guid: 143c7445b1d344d89a05ffbd688369d0, type: 3}
   _alwaysWorldUp: 0
   _fromPlayer: 0
