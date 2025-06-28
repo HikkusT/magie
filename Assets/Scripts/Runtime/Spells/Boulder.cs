@@ -13,6 +13,8 @@ namespace Magie.Spells
         [SerializeField] private int _damage;
         [SerializeField] private float _speed;
         [SerializeField] private float _angularSpeed;
+        
+        
         [SerializeField] private ParticleSystem _destroyParticles;
 
         private void Start()
@@ -31,6 +33,7 @@ namespace Magie.Spells
         private void HandleCollision(Collider other)
         {
             if (!IsSpawned || !HasAuthority) return;
+            if (other.gameObject.name == "LocalPlayer") return;
             if (!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("Solid")) return;
             
             Player collidedPlayer = other.GetComponentInParent<Player>();

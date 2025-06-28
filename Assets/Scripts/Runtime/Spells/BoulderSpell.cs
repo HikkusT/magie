@@ -9,7 +9,7 @@ namespace Magie.Spells
         
         public override Vector3 CalculateSpawnPosition(Transform origin, Transform target)
         {
-            Vector3 offsetPosition = origin.position + Vector3.ProjectOnPlane(origin.forward, Vector3.up) * _offset;
+            Vector3 offsetPosition = origin.position + Vector3.ProjectOnPlane(target.position - origin.position, Vector3.up).normalized * _offset;
             
             return new (offsetPosition.x, _groundOffset, offsetPosition.z);
         }
