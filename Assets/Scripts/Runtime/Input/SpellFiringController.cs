@@ -55,20 +55,20 @@ namespace Magie.Input
         {
             if (_spellFiringContext == null) return;
 
-            float leftTrigger = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.LTouch);
+            // float leftTrigger = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.LTouch);
                         
-            if (leftTrigger > 0.5f && !_isFiring)
-            {
-                _isFiring = true;
-                BhapticsLibrary.Play("firing");
-                _spellFiringContext.TryFire(_targetIndicator, SpellSpawner);
-            }
+            // if (leftTrigger > 0.5f && !_isFiring)
+            // {
+            //     _isFiring = true;
+            //     //BhapticsLibrary.Play("firing");
+            //     //_spellFiringContext.TryFire(_targetIndicator, SpellSpawner);
+            // }
             
-            else if (leftTrigger <= 0.5f && _isFiring)
-            {
-                _isFiring = false;
-                _spellFiringContext.TryCancel();
-            }
+            // else if (leftTrigger <= 0.5f && _isFiring)
+            // {
+            //     _isFiring = false;
+            //     //_spellFiringContext.TryCancel();
+            // }
             
             Ray ray = new Ray(_castingPalm.PalmRoot.position, -_castingPalm.PalmRoot.up);
 

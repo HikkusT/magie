@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Bhaptics.SDK2;
 
 namespace Magie.Input
 {
@@ -15,6 +16,7 @@ namespace Magie.Input
             if (leftTrigger > 0.5f && !_isFiring)
             {
                 _isFiring = true;
+                BhapticsLibrary.Play("firing");
                 _spellFiringController.FireSpell();
             }
 
