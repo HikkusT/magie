@@ -23,6 +23,9 @@ namespace Magie.Spells
         private void OnTriggerStay(Collider other)
         {
             if (other.gameObject.layer != LayerMask.NameToLayer("LocalPlayer")) return;
+            if (!IsSpawned) return;
+            
+            Debug.Log($"[Hik] On trigger stay Tornado");
             
             _player = other.GetComponentInParent<Player>();
 
@@ -65,6 +68,7 @@ namespace Magie.Spells
 
         private void Disable()
         {
+            Debug.Log($"[Hik] Tornado disable: {_localPlayer == null}");
             if (_localPlayer == null) return;
             
             _localPlayer.GravityModifier = 0.1f;
