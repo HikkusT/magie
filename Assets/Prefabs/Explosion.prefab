@@ -78,12 +78,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  _ttlInSeconds: 0.7
+  _ttlInSeconds: 1.3
   _shouldApplyeffects: 0
   _scaleDurationInSeconds: 0.5
   _scaleEase: 10
   _scaleParticles: []
   _visualRoot: {fileID: 0}
+  _isFullScale: 0
 --- !u!114 &8182965834627086051
 MonoBehaviour:
   m_ObjectHideFlags: 0
