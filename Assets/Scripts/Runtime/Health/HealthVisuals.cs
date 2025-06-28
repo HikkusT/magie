@@ -25,7 +25,7 @@ namespace Health
         {
             if (_player.CurrentHealth.Value > 4 || _player.CurrentHealth.Value <= 0) return;
 
-            TimeSpan delayToPlay = _player.CurrentHealth.Value > 1 ? TimeSpan.FromSeconds(4) : TimeSpan.FromSeconds(2); 
+            TimeSpan delayToPlay = _player.CurrentHealth.Value > 1 ? TimeSpan.FromSeconds(2) : TimeSpan.FromSeconds(1.3f); 
             if (DateTime.UtcNow > _lastPlayedHaptic + delayToPlay)
             {
                 BhapticsLibrary.Play("entered_casting", 0, 1, 2, 0, 0);
@@ -38,7 +38,7 @@ namespace Health
             _healthBar.UpdateBar(updatedHealth);
             _healthBar.gameObject.SetActive(updatedHealth > 0);
 
-            if (updatedHealth < previousHealth)
+            if (updatedHealth < previousHealth && _player.IsOwner)
             {
                 BhapticsLibrary.Play("entered_casting", 0, 1, 2, 0, 0);
                 _lastPlayedHaptic = DateTime.UtcNow;
